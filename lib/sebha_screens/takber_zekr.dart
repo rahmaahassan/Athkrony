@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// ignore: must_be_immutable
-class ZekrPage extends StatefulWidget {
-  String title, zekr;
-  ZekrPage(this.title, this.zekr);
+class TakberZekr extends StatefulWidget {
 
   @override
-  _ZekrPageState createState() => _ZekrPageState();
+  _TakberZekrState createState() => _TakberZekrState();
 }
 
-class _ZekrPageState extends State<ZekrPage> {
+class _TakberZekrState extends State<TakberZekr> {
   int _counter = 0;
 
   @override
@@ -23,7 +20,7 @@ class _ZekrPageState extends State<ZekrPage> {
   _loadCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      _counter = (prefs.getInt('counter') ?? 0);
+      _counter = (prefs.getInt('counter3') ?? 0);
     });
   }
 
@@ -31,8 +28,8 @@ class _ZekrPageState extends State<ZekrPage> {
   _incrementCounter() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _counter = (prefs.getInt('counter') ?? 0) + 1;
-      prefs.setInt('counter', _counter);
+      _counter = (prefs.getInt('counter3') ?? 0) + 1;
+      prefs.setInt('counter3', _counter);
     });
   }
 
@@ -40,17 +37,16 @@ class _ZekrPageState extends State<ZekrPage> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _counter = 0;
-      prefs.remove('counter');
+      prefs.remove('counter3');
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // ignore: non_constant_identifier_names
     final MQW = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.title}',
+        title: Text('تكبير',
             style: TextStyle(
               color: Theme.of(context).accentColor,
             )),
@@ -64,7 +60,7 @@ class _ZekrPageState extends State<ZekrPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
-              '${widget.zekr}',
+              'اللّه اكبر',
               style: TextStyle(fontSize: MQW * 0.09, color: Colors.blueGrey),
             ),
             Text(
@@ -91,7 +87,7 @@ class _ZekrPageState extends State<ZekrPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _resetCount,
-        tooltip: 'increment',
+        tooltip: 'refresh',
         child: Icon(Icons.refresh),
       ),
     );

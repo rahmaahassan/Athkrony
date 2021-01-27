@@ -1,11 +1,14 @@
-import 'package:athkrony/model/zekr_card.dart';
+import 'package:athkrony/sebha_screens/estghfr_zekr.dart';
+import 'package:athkrony/sebha_screens/hamd_zekr.dart';
+import 'package:athkrony/sebha_screens/takber_zekr.dart';
+import 'package:athkrony/sebha_screens/tasbeh_zekr.dart';
+import 'package:athkrony/sebha_screens/thlil_zekr.dart';
 import 'package:flutter/material.dart';
 
-
 class SebhaPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
+    final MQW = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -17,18 +20,118 @@ class SebhaPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ZekrCard(title: 'أستغفار', zekr: 'أستغفر اللّه',),
-          ZekrCard(title: 'تهليل', zekr: 'لا إله إلا اللّه',),
-          ZekrCard(title: 'تكبير', zekr: 'اللّه اللّه',),
-          ZekrCard(title: 'تسبيح', zekr: 'سبحان اللّه',),
-          ZekrCard(title: 'حمد', zekr: 'الحمدللّه',),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Container(
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.all(2),
+              child: Card(
+                color: Colors.white,
+                elevation: 2.5,
+                child: ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => EstghfrZekr()));
+                  },
+                  title: Text( 'أستغفار',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MQW * 0.06),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Container(
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.all(2),
+              child: Card(
+                color: Colors.white,
+                elevation: 2.5,
+                child: ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => TahlilZekr()));
+                  },
+                  title: Text( 'تهليل',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MQW * 0.06),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Container(
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.all(2),
+              child: Card(
+                color: Colors.white,
+                elevation: 2.5,
+                child: ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => TakberZekr()));
+                  },
+                  title: Text('تكبير',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MQW * 0.06),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Container(
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.all(2),
+              child: Card(
+                color: Colors.white,
+                elevation: 2.5,
+                child: ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => TasbehZekr()));
+                  },
+                  title: Text('تسبيح',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MQW * 0.06),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Container(
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.all(2),
+              child: Card(
+                color: Colors.white,
+                elevation: 2.5,
+                child: ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => HamdZekr()));
+                  },
+                  title: Text('حمد',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MQW * 0.06),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-
-
-
-
